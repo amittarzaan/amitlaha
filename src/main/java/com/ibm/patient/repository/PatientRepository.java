@@ -7,5 +7,4 @@ import com.ibm.patient.model.Patient;
 
 @Repository
 public interface PatientRepository extends MongoRepository<Patient, String> {
-
 }

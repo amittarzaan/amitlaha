@@ -15,6 +15,7 @@ public class Patient {
 
 	/*Constructors*/
 	public Patient() {
+
 	}
 
 	public Patient(String id, String name, String mobile) {
@@ -50,6 +51,5 @@ public class Patient {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
-
 
 }

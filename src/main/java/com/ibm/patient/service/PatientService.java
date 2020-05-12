@@ -5,7 +5,7 @@ import java.util.Optional;
 import com.ibm.patient.model.GetPatientResponse;
 import com.ibm.patient.model.Patient;
 
-public interface  PatientService {
+public interface PatientService {
 	
 	public void createPatient(Patient patient);
 	
@@ -16,5 +16,5 @@ public interface  PatientService {
 	public void update(Patient patient, String name);
 	
 	public void deletePatientById(String id);
-
+	
 }
