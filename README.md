@@ -1,84 +1,38 @@
-docker-java-sample-webapp
-=========================
+# docker
 
-## Getting started
+## Docker in Brief
 
-- Build the java app
+The docker project offers higher-level tools, working together, which are built on top of some Linux kernel features. The goal is to help developers and system administrators port applications - with all of their dependencies conjointly - and get them running across systems and machines - headache free.
 
-`mvn clean install`
+Docker achieves this by creating safe, LXC (i.e. Linux Containers) based environments for applications called docker containers. These containers are created using docker images, which can be built either by executing commands manually or automatically through Dockerfiles.
 
-- Take the war file from `target` & put it into `src/main/docker` directory.
+## What Are Dockerfiles?
 
-## Docker commands approach
+Dockerfiles are scripts containing commands declared successively which are to be executed, in the order given, by docker to automatically create a new docker image. They help greatly with deployments.
 
-- Go into `src/main/docker` directory
+These files always begin with the definition of a base image by using the FROM command. From there on, the build process starts and each following action taken forms the final with commits (saving the image state) on the host.
 
-- Build the docker image
+## Creating the Docker Image for aurora Containers
 
-`docker build -t tomcat:1 .`
+We can now create our first aurora image by following the usage instructions explained in the Dockerfile Basics section.
 
-- Run the image inside a container
+Run the following command to create an image, tagged as `aurora_img`:
 
-`docker container run -p 8080:8080 tomcat:1`
+`sudo docker build -t aurora_img .`
 
-- Go to `http://localhost:8080/docker-java-sample-webapp-1.0-SNAPSHOT?name=World` & see the app running in docker
+Note: Do not forget the trailing `.` for docker to find the Dockerfile.
 
-- List all containers
+## Running dockerised aurora Containers
+t is very simple to create any number of perfectly isolated and self-contained aurora instances - now - thanks to the image we have obtained in the previous section. All we have to do is to create a new container with `docker run`.
 
-`docker container ls`
+To create a new container, use the following command, modifying it to suit your requirements following this example:
 
-- Stop container
+# Example
+`sudo docker run -d -v /home/rasheed/Projects/aurora:/home/aurora -p 8080:8080 -p 9000:9000 -p 35729:35729 -p 4022:22 -t aurora_img`
 
-`docker container kill <container-id>`
+Now we will have a docker container named `aurora_ins`, accessible from ports 8080, 9000 run using our image tagged `aurora_img`, which we built previously.
 
-- Remove container
+# SSH into container
 
-`docker rm <container-id>`
-
-- List all images
-
-`docker images`
-
-- Remove image
-
-`docker rmi tomcat:1`
-
-- Remove base image
-
-`docker rmi bitnami/tomcat:latest`
-
-## Docker compose approach
-
-- Go into `src/main/docker` directory
-
-- Execute the command
-
-`docker-compose up`
-
-- When it is stopped, the corresponding containers are deleted also. But images remain. They have to be deleted using commands.
-
-## Kubernetes approach
-
-- Use docker edge channel. It has inbuilt kubernetes support.
-
-- To get kubernetes dashboard running
-
-- `kubectl cluster-info`
-- `kubectl -n kube-system edit service kubernetes-dashboard`
-- `You should see yaml representation of the service. Change type: ClusterIP to type: NodePort and save file. If it's already changed go to next step.`
-- `kubectl -n kube-system get service kubernetes-dashboard`
-
-- Now deploy the war
-
-- Use helm 2.8.2
-- `helm.exe install .`
-
-- To delete entire deployment
-- `kubectl delete deployment kissing-fish-java-sample-webapp`
-
-
-## Extras
-
-- Log into the container
-
-`docker exec -it [container-id] bash`
+`ssh -p 4022 aurora@localhost`
+pwd: `aurora`
