@@ -26,6 +26,7 @@ import io.swagger.annotations.Api;
 @CrossOrigin(origins="*")
 @RequestMapping(value={"/","/patient"})
 @Api(value="sample", description="Sample SpringBoot CRUD Application with MongoDB")
+
 public class PatientController {
 	@Autowired
 	PatientService patientService;
@@ -50,7 +51,7 @@ public class PatientController {
 		 return patient;
 	 }
 
-	
+		
 	  @PutMapping(value="/update/patient/{id}", headers="Accept=application/json") 
 	  public ResponseEntity<Patient> updatePatient(@RequestBody Patient currentPatient,@PathVariable("id") String name) {
 		  patientService.update(currentPatient, name);
@@ -67,5 +68,5 @@ public class PatientController {
 		  return new ResponseEntity<Patient>(HttpStatus.NO_CONTENT); 
 	  }
 	 
-	
+
 }

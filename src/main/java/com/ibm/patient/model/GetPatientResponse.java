@@ -2,11 +2,9 @@ package com.ibm.patient.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GetPatientResponse {
-	  
 	 @JsonProperty("patients")
 	  private List<Patient> patients = new ArrayList<Patient>();
 
@@ -27,7 +25,5 @@ public class GetPatientResponse {
 	public void setPatients(List<Patient> patients) {
 		this.patients = patients;
 	}
-	  
-	  
 
 }

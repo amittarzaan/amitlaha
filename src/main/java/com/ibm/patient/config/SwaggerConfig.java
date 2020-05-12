@@ -1,4 +1,5 @@
 package com.ibm.patient.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -14,8 +15,9 @@ import static springfox.documentation.builders.PathSelectors.regex;
 
 @Configuration
 @EnableSwagger2
+
 public class SwaggerConfig extends WebMvcConfigurationSupport {
-    @Bean
+	@Bean
     public Docket patientApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
@@ -42,4 +44,5 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
+
 }
