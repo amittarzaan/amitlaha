@@ -11,4 +11,3 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 COPY --from=compile "/app/target/patient-0.0.1-SNAPSHOT.jar" /usr/share/
 
 ENTRYPOINT ["java", "-jar", "/usr/share/patient-0.0.1-SNAPSHOT.jar"]
-docker tag autobuild-amban autobuild-amban:$(git rev-parse --short HEAD)
