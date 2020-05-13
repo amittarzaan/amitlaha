@@ -1,6 +1,13 @@
-FROM openjdk:8-jdk-alpine
-EXPOSE 8080
-VOLUME /tmp
-ARG JAR_FILE=target/patient-0.0.1-SNAPSHOT.jar
-COPY ./${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM adoptopenjdk/openjdk11:alpine as compile
+MAINTAINER amittarzaan amittarzaan@gmail.com
+
+# Build the jar using maven 
+RUN apk add maven
+WORKDIR /app
+COPY . /app/
+RUN mvn -f pom.xml clean package -DskipTests
+FROM adoptopenjdk/openjdk11:alpine-jre
+# Copy the packaged jar app file to a smaller JRE base image
+COPY --from=compile "/app/target/patient-0.0.1-SNAPSHOT.jar" /usr/share/
+
+ENTRYPOINT ["java", "-jar", "/usr/share/patient-0.0.1-SNAPSHOT.jar"]
