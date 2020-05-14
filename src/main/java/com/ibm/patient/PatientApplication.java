@@ -14,7 +14,7 @@ public class PatientApplication {
 		SpringApplication.run(PatientApplication.class, args);
 	}
 	@GetMapping("/hello")
-	public String hello(@RequestParam(value = "name", defaultValue = "WorldAmit") String name) {
+	public String hello(@RequestParam(value = "name", defaultValue = "WorldAMBAN") String name) {
         return String.format("Hello %s!", name);
 	}
 }
