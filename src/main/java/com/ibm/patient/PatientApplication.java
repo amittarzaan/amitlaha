@@ -32,11 +32,11 @@ public class PatientApplication  extends SpringBootServletInitializer{
 			  defaultValue = "World1.18/5/2020") String name) { return
 			  String.format("Hello %s!", name); }
 			 
-				/*
-				 * @Bean public InternalResourceViewResolver jspViewResolver() {
-				 * InternalResourceViewResolver resolver= new InternalResourceViewResolver();
-				 * resolver.setPrefix("/WEB-INF/jsp/"); resolver.setSuffix(".jsp"); return
-				 * resolver; }
-				 */
+				
+				  @Bean public InternalResourceViewResolver jspViewResolver() {
+				  InternalResourceViewResolver resolver= new InternalResourceViewResolver();
+				  resolver.setPrefix("/WEB-INF/jsp/"); resolver.setSuffix(".jsp"); return
+				  resolver; }
+				 
 
 }
