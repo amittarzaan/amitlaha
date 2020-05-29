@@ -1,7 +1,5 @@
 package com.ibm.patient;
 
-import java.util.Map;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -31,12 +29,14 @@ public class PatientApplication  extends SpringBootServletInitializer{
 			  @GetMapping("/hello") public String hello(@RequestParam(value = "name",
 			  defaultValue = "World1.18/5/2020") String name) { return
 			  String.format("Hello %s!", name); }
-			 
+			 			
 				
 				  @Bean public InternalResourceViewResolver jspViewResolver() {
 				  InternalResourceViewResolver resolver= new InternalResourceViewResolver();
 				  resolver.setPrefix("/WEB-INF/jsp/"); resolver.setSuffix(".jsp"); return
 				  resolver; }
 				 
+				 
+
 
 }
