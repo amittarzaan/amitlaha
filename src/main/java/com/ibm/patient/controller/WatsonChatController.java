@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WatsonChatController {
 
+	
 	// inject via application.properties
 	@Value("${welcome.message:test}")
 	private String message = "Hello World";
