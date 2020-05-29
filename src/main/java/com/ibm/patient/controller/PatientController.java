@@ -1,5 +1,6 @@
 package com.ibm.patient.controller;
 
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,5 @@ public class PatientController {
 		  patientService.deletePatientById(id);
 		  return new ResponseEntity<Patient>(HttpStatus.NO_CONTENT); 
 	  }
-	 
-	
+
 }
