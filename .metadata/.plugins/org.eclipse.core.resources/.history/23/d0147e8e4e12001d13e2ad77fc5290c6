@@ -1,0 +1,8 @@
+package com.jcg.hybernate.maven;
+
+import org.hibernate.SessionFactory;
+
+public class AppGetDelUpInMethod {
+	static User userObj;
+	private SessionFactory sessionFactory=DatabseUtill.buildSessionFactory();
+}

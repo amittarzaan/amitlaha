@@ -1,0 +1,5 @@
+package com.jcg.hybernate.maven;
+
+public class User {
+
+}

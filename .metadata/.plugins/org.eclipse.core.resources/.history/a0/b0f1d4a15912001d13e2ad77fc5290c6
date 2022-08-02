@@ -1,0 +1,15 @@
+package com.jcg.hybernate.maven;
+
+public class AppMain {
+
+
+	public static void main(String[] args) {
+		
+		String argument=(args.length > 0 && null != args[0]) ? args[0]: "";
+		// TODO Auto-generated method stub
+		AppGetDelUpInMethod appGetDelUpInMethod=new AppGetDelUpInMethod();
+		appGetDelUpInMethod.AddMulitpleRecords();
+		
+	}
+
+}

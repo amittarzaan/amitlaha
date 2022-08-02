@@ -1,0 +1,12 @@
+INDEX VERSION 1.4+C:\Users\AmitLaha\Desktop\AMIT\SPRING\New2022Eclipse\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1636086613.index
+4132832540.index
+937424143.index
+2373309889.index
+1087948185.index
+3456762089.index
+4145172094.index
+3132447967.index
+1984131317.index
+3604622236.index
+3579158297.index

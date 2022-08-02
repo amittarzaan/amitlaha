@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CleanDialogSettings">
+		<item key="TOGGLE_SELECTED" value="false"/>
+		<item key="DIALOG_WIDTH" value="828"/>
+		<item key="DIALOG_HEIGHT" value="482"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\AmitLaha\Desktop\AMIT\SPRING\Srping_IMP\Example_Proj\SpringMVCCRUDSimple_Ruf"/>
+			<item value="C:\Users\AmitLaha\Desktop\AMIT\SPRING\Srping_IMP\Example_Proj\SpringMVCCRUDSimple"/>
+			<item value="C:\Users\AmitLaha\Desktop\AMIT\SPRING\Srping_IMP\Example_Proj\spring-mvc-example"/>
+			<item value="C:\Users\AmitLaha\Desktop\AMIT\SPRING\Srping_IMP\Example_Proj\spring-mvc-example(1)\spring-mvc-example"/>
+			<item value="C:\Users\AmitLaha\Desktop\AMIT\SPRING\Srping_IMP\Example_Proj\springmvcexample"/>
+			<item value="C:\Users\AmitLaha\Desktop\AMIT\SPRING\Srping_IMP\Example_Proj\SpringMVCJdbcTransaction"/>
+			<item value="C:\Users\AmitLaha\Desktop\AMIT\SPRING\Srping_IMP\Example_Proj\SpringMVCCRUDSimple\SpringMVCCRUDSimple"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+</section>

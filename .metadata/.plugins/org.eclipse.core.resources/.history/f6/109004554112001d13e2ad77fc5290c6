@@ -1,0 +1,57 @@
+package com.jcg.hybernate.maven;
+
+
+import java.sql.SQLDataException;
+import java.util.Date;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+public class AppMain {
+	static User userObj;
+	private SessionFactory sessionFactory=DatabseUtill.sessionFactoryObj;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			
+		String argument=(args.length > 0 && null != args[0]) ? args[0]: "";
+		
+		if(argument!=null&&argument.equalsIgnoreCase("INSERT")) {
+			
+		}else if(argument!=null&&argument.equalsIgnoreCase("UPDATE")) {
+			
+		}else if(argument!=null&&argument.equalsIgnoreCase("DELETE")) {
+			
+		}else if(argument!=null&&argument.equalsIgnoreCase("SELECT")) {
+
+		}else {
+			System.out.println("thi is not an select/update/insert/delete call");
+		}
+		
+		Session sessionObj=sessionFactory.openSession();
+		sessionObj.beginTransaction();
+		 for(int i = 101; i <= 105; i++) {
+             userObj = new User();
+             userObj.setUserid(i);
+             userObj.setUsername("Editor " + i);
+             userObj.setCreatedBy("Administrator");
+             userObj.setCreatedDate(new Date());
+             sessionObj.save(userObj);
+         }
+		 System.out.println("Records successfully inserted");
+		 sessionObj.getTransaction().commit();
+		 
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Exception occuresd "+e.getMessage());
+		}finally {
+			if(sessionObj!=null) {
+			sessionObj.close();
+			}
+		}
+	}
+
+}

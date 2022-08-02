@@ -1,0 +1,5 @@
+127.0.0.1 - - [27/Jul/2022:16:25:06 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [27/Jul/2022:16:25:08 +0530] "GET /SpringMVCCRUDSimple/ HTTP/1.1" 200 72
+127.0.0.1 - - [27/Jul/2022:16:25:10 +0530] "GET /SpringMVCCRUDSimple/empform HTTP/1.1" 200 708
+127.0.0.1 - - [27/Jul/2022:16:25:18 +0530] "POST /SpringMVCCRUDSimple/save HTTP/1.1" 302 -
+127.0.0.1 - - [27/Jul/2022:16:25:18 +0530] "GET /SpringMVCCRUDSimple/viewemp HTTP/1.1" 200 1421

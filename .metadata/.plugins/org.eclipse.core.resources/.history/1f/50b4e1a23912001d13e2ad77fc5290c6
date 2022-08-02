@@ -1,0 +1,8 @@
+package com.jcg.hybernate.maven;
+
+import javax.persistence.Table;
+
+@Table(name="user_table")
+public class User {
+
+}
