@@ -1,0 +1,2 @@
+com\pwm\aws\crud\lamda\api\model\Product.class
+com\pwm\aws\crud\lamda\api\ProductLamdaHandler.class
