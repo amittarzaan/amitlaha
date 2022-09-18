@@ -1,0 +1,127 @@
+#!/bin/bash
+#-----------Credential Change Script---------------
+echo "Execution start "  $(date +'%m/%d/%Y') "-" $( date +"%T")
+file_base="./PasswordChangeInfo.properties"
+input_file="./DirectoryList.properties"
+if [ -f "$file_base" ]
+then
+    echo "$file_base found."
+ . $file_base
+if [ -f "$input_file" ]
+then
+    echo "$input_file found."
+ . $input_file
+echo "<<<<--------------------------------------------------------OLD AND NEW DB INFO---------------------------------------------------------->>>>>"
+echo "Execution server IP :: "$(hostname -I)
+echo "USER::" $USER
+echo "Old IP and Schema="$Old_dbIP "|New IP and Schema=" $New_dbIP
+echo "Old User Name=" $Old_dbUser "|New User Name=" $New_dbUser
+echo "Old Encrypted Password=" $Old_DBPasword "|New Encrypted Password=" $New_DBPasword
+echo "................................................................................................................................................."
+ while IFS='' read -r line || [[ -n "$line" ]]; do
+    echo "$line"
+echo "<<<<-------------------------------------------------------DIRECTORY------------------- ------------------------------------------------->>>>"
+cd $line
+echo "DB IP/user/password changing..."
+
+for FILE in *.properties 
+ do
+ echo $FILE
+ #prop_value=`cat ${FILE} | grep -P '^(?!#)${prop_key_URL}' | cut -d'=' -f2-`
+prop_value=`cat ${FILE} | grep -P '^(?!#)'${prop_key_URL}''   | cut -d'=' -f2-`
+
+#echo "URL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ${prop_value}
+ if [ $prop_value == $Old_dbIP ] 
+ then 
+  #echo "Mandatory ::DB URL value >> Matched" 
+	prop_value=`cat ${FILE} | grep -P '^(?!#)'${prop_key_username}'' | cut -d'=' -f2-`
+	#echo "USERNAME>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ${prop_value}
+	 if [ $prop_value == $Old_dbUser ] 
+ 		then 
+  		 # echo "Mandatory ::DB User value >> Matched " 
+		  prop_value=`cat ${FILE} | grep -P '^(?!#)'${prop_key_password}''  | cut -d'=' -f2-`
+		 # echo "PASSWORD>>>>>>>>>>>>>>>>>>>>>>>>>>>>>" ${prop_value}
+		     if [[ "$prop_value" == "$Old_DBPasword" ]] 	
+	    		 then 
+			#echo "Mandatory ::DB Password value >> Matched" 
+			FILE_COUNT=0
+		if [ $New_dbIP != $Old_dbIP ]  
+		then   
+		FILE_COUNT=$((FILE_COUNT+1))  
+		fi
+		if [ $New_dbUser != $Old_dbUser ] 
+		then  
+		FILE_COUNT=$((FILE_COUNT+1))  
+		fi
+		if [ $New_DBPasword != $Old_DBPasword ]  
+		then 
+		FILE_COUNT=$((FILE_COUNT+1)) 
+		fi
+		if [ $FILE_COUNT -gt 0 ]; then 
+		#echo "File cound is geather than zero ="$FILE_COUNT
+		cp ${FILE}  $BK_UP_PATH 
+		#else 
+		#echo "File cound is zero ="$FILE_COUNT
+		fi  
+			if [ $New_dbIP != $Old_dbIP ] 
+ 		   	  then   		    	 
+			sed -i 's+'"$Old_dbIP"'+'"$New_dbIP"'+g'  ${FILE} 
+			echo "URL changed"
+			#else
+			#echo "no password changed"
+	                fi
+
+			if [ $New_dbUser != $Old_dbUser ] 
+ 		   	  then 
+  		    	 	
+				sed -i 's/'"$Old_dbUser"'/'"$New_dbUser"'/g' ${FILE}
+				echo "User Name changed" 
+			#else
+			#echo "no password chnaged "
+	                fi
+
+			if [ $New_DBPasword != $Old_DBPasword ] 
+ 		   	  then 
+  		    	
+			 sed -i 's+'"$Old_DBPasword"'+'"$New_DBPasword"'+g' ${FILE}
+			 echo "password changed"
+			else
+			echo "no password changed "	
+				 
+	                fi
+echo "******FILE NAME AND PROPERTY VARIABLE ***************** "
+grep $New_dbIP ${FILE}
+grep $New_dbUser ${FILE}
+grep $New_DBPasword ${FILE}
+echo "*******UPDATED FILES DETAILS****************************"	
+			else echo "password $prop_value not maatched"
+                       
+	           fi
+		else echo "user name $prop_value not maatched" 
+
+
+	fi
+	else echo "URL $prop_value not maatched"
+
+
+ fi
+done
+
+echo "done"
+echo "------------------------------------last minutes updated file list------------------------------------------------------------- "
+echo "file location:: " $PWD
+find . -name "*.*" -mmin -0.50 -ls
+echo "*****************************************************Completed one directory************************************************"
+
+
+done < $input_file
+else 
+ echo "$input_file not found."
+fi
+
+
+else
+    echo "$file_base not found."
+fi
+echo "Execution END "  "$(date +'%m/%d/%Y')" "-" "$( date +"%T")"
+echo "EXIT ..."

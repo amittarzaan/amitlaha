@@ -1,0 +1,68 @@
+sadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$
+[wasadmin@ndc3vlntoms03 script]$ clear
+[wasadmin@ndc3vlntoms03 script]$ ./DBcredetialReplaceScript.sh
+Execution start  09/18/2022 - 19:04:09
+./PasswordChangeInfo.properties found.
+./DirectoryList.properties found.
+./DirectoryList.properties: line 1: /tmp/properties_deleteScriptTest/test_File1: Is a directory
+./DirectoryList.properties: line 2: /tmp/properties_deleteScriptTest/test_file2_wtihHash: Is a directory
+<<<<----------------------------OLD AND NEW DB INFO---------------------------------------------->>>>>
+Execution server IP :: 10.94.100.101
+USER:: wasadmin
+Old IP and Schema=jdbc:oracle:thin:@10.94.100.123:1908/COMLIVENDC |New IP and Schema= jdbc:oracle:thin:@100.100.100.100:1908/COMLIVENDC123
+Old User Name= liveuser |New User Name= newuser
+Old Encrypted Password= zn/VRDEVdSnOxKDPwkRHDoJLr2QwSOFWTuExBfJ6sQE= |New Encrypted Password= XXXzn/VRDEVdSnOxKDPwkRHDoJLr2QwSOFWTuExBfJ6sQE=XXX
+.......................................................................................................
+/tmp/properties_deleteScriptTest/test_File1
+<<<<-----------------------------Individual Directory-------------------------------------------->>>>
+DB IP/user/password changing...
+BENEFITS_REPORT.properties
+Final URL_KEY-->JDBC.Oracle.URL::USER_key-->JDBC.Oracle.UserName::PASSWORD_key-->JDBC.Oracle.Password....
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+URL changed
+User Name changed
+password changed
+******Updated KEY VALUE *****************
+JDBC.Oracle.URL=jdbc:oracle:thin:@100.100.100.100:1908/COMLIVENDC123
+JDBC.Oracle.UserName=newuser
+JDBC.Oracle.Password=XXXzn/VRDEVdSnOxKDPwkRHDoJLr2QwSOFWTuExBfJ6sQE=XXX
+****************************************
+done
+last minutes updated file list::::
+file location::  /tmp/properties_deleteScriptTest/test_File1
+876598    0 drwxr-xr-x   2 wasadmin wasadmin       39 Sep 18 19:04 .
+876605    4 -rw-------   1 wasadmin wasadmin     1825 Sep 18 19:04 ./BENEFITS_REPORT.properties
+/tmp/properties_deleteScriptTest/test_file2_wtihHash
+<<<<-----------------------------Individual Directory-------------------------------------------->>>>
+DB IP/user/password changing...
+HASH_BENEFITS_REPORT.properties
+Required value is not availble  URL_KEY-->::USER_key-->JDBC.Oracle.UserName::PASSWORD_key-->JDBC.Oracle.Password
+done
+last minutes updated file list::::
+file location::  /tmp/properties_deleteScriptTest/test_file2_wtihHash
+Execution END  09/18/2022 - 19:04:09
+EXIT ...
+[wasadmin@ndc3vlntoms03 script]$
+
